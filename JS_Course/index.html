@@ -1,0 +1,187 @@
+<!DOCTYPE html> 
+
+<html> 
+    <header>
+        
+        <!--  瀏覽器視窗最上面的的標題   --> 
+        <title> JavaScript 課程 | ProgressBar  </title>   
+        
+    </header>
+    <main> 
+        <head> 
+            <meta charset="UTF-8" /> 
+        </head>
+        
+        <body>
+            
+            <button type ="button" onclick="alert(' ㄏㄏ被點了 !#$ ')">   <!-- onclick 是一種EVENT  --> 
+            點擊我之二
+            </button>
+            
+            <button type ="button" onclick="alert('Hey Yoo');alert('what is UPP')">   <!-- 加兩個 EVENT  --> 
+            點擊我之三
+            </button>
+            
+            <button type ="button" onclick="clickMe()">   <!-- Event 用函數來呼叫  --> 
+            點擊我
+            </button>
+            
+
+            
+            
+            <!-- Event 用函數來呼叫  | style: 可改變鼠標形狀  | border: 加上邊界  --> 
+            <div> 
+                <p onclick="clickP()" style="cursor: pointer; border: 1px solid black;"> ProgressBARRRR  </p>
+            </div>
+
+            <!-- Selector實作 --> 
+            
+            <!-- getElementById() | selector抓ID  |  加上了 id=""    --> 
+            <h1 id="subtitle">  下標題  </h1>
+            
+            <div> 
+                <!-- getElementsByClassName() | selector抓 ClassName       --> 
+                <p class="content"> content 1 </p> 
+                <p class="content"> content 2 </p> 
+                <p class="content"> content 3 </p> 
+                <p class="content"> content 4 </p> 
+                <p class="content"> content 5 </p>
+            
+            
+                <input name="search" type="search" placeholder="搜尋" /> 
+            </div>
+            
+        </body>
+        
+        <script> 
+            
+            // 語法1  alert 
+            // alert("Progress Bar Online class"); 
+            
+            // 語法2 document write 
+            document.write("Progress Bar Online class"); 
+            document.write("<div>");  // blocking 換行
+            document.write("<button type='button' onclick='restore()'> 按鈕一號 </button>" ); 
+            document.write("<div>");  // blocking 換行
+            
+            
+            
+            
+            
+            //JS__基本語法 
+            /*
+            var name1 = " 哈!哈!哈! ";
+            var title = " 標題 ";
+            // alert(name1); 
+            console.log(name1); 
+            console.log( title + name1 + " :)  嘻嘻哈哈 "); 
+            var score = 100; 
+            console.log(typeof name1);
+            console.log(typeof score);
+            */
+            
+            
+            
+  
+            
+            //JS__Function 定義式_1 
+            function clickMe () {
+                alert('被點了之1');
+                alert('被點了之2');
+                alert('被點了之3');    
+            }
+            
+            
+            //JS__function 定義式_2     此時clickP 是變數 
+            // var [變數名稱] = function() { [想做的事] }
+            var clickP = function() {
+                alert("P 被點了");
+                subT.innerHTML = " ProgressBar 進度條 "; 
+                
+            }
+            var restore = function() {
+                subT.innerHTML = "下標題"; 
+            }
+            
+            
+            
+
+                        
+            
+            
+            
+            //JS__SELECTOR 實作
+            console.log(0); 
+            var subT = document.getElementById("subtitle"); 
+            //console.log( subT );
+            //console.log( typeof subT );   // object   !!也代表JS中 var 可接 object 
+            
+            //alert(subT);   // [object HTMLHeadingElement] 
+            
+            //alert( subT.outerHTML ); // <h1 id="subtitle">  下標題  </h1>
+            //alert( typeof subT.outerHTML ); // string 
+            
+            
+            // innerHTML 只存取最裡面內容 | 
+            //alert( subT.innerHTML ); // 下標題 
+            //alert( typeof subT.innerHTML ); // string 
+            //subT.innerHTML = "  ProgressBar 進度條 "; // 改變後 
+            //alert( "改變後: " + subT.innerHTML ); // 改變後 
+            
+            
+            //document.getElementById("subtitle"); 
+            
+            
+ 
+            
+            
+            //JS__Array 
+            var array1 = [];   // typeof array1 == object 
+            var arrayOfNames = ["John" , "Smith" , "Jason", "Marie"]; 
+            //console.log(arrayOfNames[2]);
+            
+            //!!注意 getELementsBy___ 回傳的是一個陣列 
+            
+            //getElementsByClassName 示範 
+            var arrayOfContents = document.getElementsByClassName("content"); 
+            console.log(arrayOfContents);
+            arrayOfContents[4].innerHTML = "AAAAAA";   // 用陣列來存取元素 
+          
+            //getElementsByTagName 示範 
+            var arrayOfSameTags = document.getElementsByTagName("p");
+            console.log(arrayOfSameTags); 
+            var whoAmI = arrayOfSameTags[2]; 
+            whoAmI.innerHTML = "我是誰??"; 
+            
+            
+            //getElementsByName 示範 
+            
+            
+            
+            
+            
+            
+            
+        </script>
+          
+     </main>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,15 @@
+#header {
+    background-color: rgba(0, 0, 255, 0.15);
+    color: red;
+    display: inline-block;
+}
+
+#main {
+    background-color: aqua;
+}
+
+#footer {
+    background-color: gray;
+    color: whitesmoke;
+
+}

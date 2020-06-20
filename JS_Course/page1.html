@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <h1 id="title1"> 標題一 </h1>
+    <h1 id="title2" onclick="clickMe02();"> 標題2 </h1>
+
+    <button type="button" onclick="clickMeReset();">
+        變回原本標題
+    </button>
+
+    <!-- 搜尋欄   -->
+    <p> 金額 : </p>
+    <input id="amount" type="text" value="200" />
+
+    <!--  按鈕     -->
+    <button type="button" onclick="clickMe02() ;">
+        輸入完點擊我
+    </button>
+
+
+    <!--  列表   -->
+    <ul id="list">
+
+    </ul>
+
+
+
+
+
+</body>
+<script>
+    var number = 1;
+
+    var clickMe01 = function() {
+        number *= 10;
+        console.log(number);
+        // alert(number); 
+    }
+
+
+    var clickVar = 0;
+    var title2Obj = document.getElementById("title2");
+
+
+
+    var clickMeReset = function() {
+        title2Obj.innerHTML = "標題2";
+    }
+
+    //JS__ 數字的處理          
+    //        console.log(someNum);
+    //        console.log(Math.floor(someNum)); //無條件捨去
+    //        console.log(Math.round(someNum)); //四捨五入到整數 
+    //        console.log(Math.ceil(someNum));  //無條件進位 
+
+    //JS__ 數字 + 字串 = 字串
+    //JS__ 數字 + 數字 = 數字
+    //        var result = 1; 
+    //        var result02 = 1 + ""; 
+    //        var str = result.toString(); 
+    //        var str02 = "10"; 
+    //        str02 = str02 + 10;   // console.log(str02); // 1010 
+
+    //         typeof result == number 
+    //         typeof result02 == string 
+    //         typeof str == string 
+    //         typeof str02 == string 
+
+    //JS__ if else 
+    var inputAmount = document.getElementById("amount");
+    var clickMe02 = function() {
+        //            title2Obj.innerHTML = clickVar; 
+        //            clickVar += 3; 
+
+        var convertedAmt = Number(inputAmount.value);
+        if (isNaN(convertedAmt)) {
+            alert(" 輸入錯誤! 請重新輸入! ");
+        } else {
+            title2Obj.innerHTML = convertedAmt;
+        }
+    }
+    
+    
+    
+    
+    
+    
+    // == abstract equality   會先轉換
+    // [ex1] console.log( 3 == "3" ); // true 
+    // [ex2] console.log( true == "1" ); // true
+    // === strick equality    必return false  \ if type is different 
+    // [ex1-1] console.log( 3 === "3" ); // false 
+    // [ex2-1] console.log( true === "1" ); // false 
+    
+    
+    //JS__while Loop 實作 
+    var limit = 10; 
+    var index = 0; 
+    var ulList = document.getElementById("list"); 
+    var nameArr = [ "John", "Smith", "Mary", "Jason" ]; 
+    
+    while( index < nameArr.length ) {
+        ulList.innerHTML += "<li>" + nameArr[index] + "</li>"; 
+        index ++ ; 
+        
+    }
+    
+    
+    
+    //JS__ for loop 實作 
+    /*
+    for ( var index = 0 ; index < nameArr.length ; index ++ ){
+        .....
+        
+        
+        
+    }
+    */ 
+    
+    //JS__ Array 也可以接function 
+    var arr1 = ["a1", "a2" , function(){
+        // alert("BBBBBB");
+    }]; 
+    arr1[2](); 
+    
+    
+    //JS__ JSON Object 
+    // Key-Value pair  其中 1) [ key = string || number ]  
+    //                      2) [ value = string || function || number ]  
+    
+    var obj1 = { 
+        0 : "a1",
+        6 : "a2", 
+        "apple" : function(){
+            // alert("AAAAAA");
+        }
+    }; 
+    
+    obj1["apple"]();
+    
+    //兩種方式可以新建object 
+    var obj2 = {};  // 可放值
+    var obj3 = new Object(); 
+    
+    
+    // 兩種方式可對 Object 加入新元素
+    obj2["element1"] = 'e1'; 
+    obj3.element87 = 'e87'; 
+//    console.log( obj1);
+//    console.log( obj2);
+//    console.log( obj3);
+    
+    
+    
+    //實作
+    var lib = new Object(); 
+    
+    // setter for first name 
+    lib.setFirstName = function( inputFN = "TBD" ){
+        if ( typeof inputFN !=  "string"  ){
+            this.firstName = "TBD"; 
+        }else{
+            this.firstName = inputFN; 
+        }
+        
+        if ( inputFN != null ){
+            this.fullName = this.firstName + " " + this.lastName; 
+        }else{
+            this.fullName =  this.lastName; 
+        }
+    }
+    // setter for last name 
+    lib.setLastName = function( inputLN = "TBD" ){
+        if ( typeof inputLN !=  "string"  ){
+            this.lastName = "TBD"; 
+        }else{
+            this.lastName = inputLN; 
+        }
+        
+        if ( inputLN != null ){
+            this.fullName = this.firstName + " " + this.lastName; 
+        }else{
+            this.fullName =  this.firstName; 
+        }
+    }
+    
+    
+    
+    
+    //JS__ 物件  
+    function Person(firstName="", lastName=""){
+        this.firstName = firstName; 
+        this.lastName = lastName; 
+        this.fullName = this.firstName + " " + this.lastName; 
+        
+        this.setFirstName = function(inputFN){               //setter 1 
+            if ( typeof inputFN === typeof "string"){
+                this.firstName = inputFN; 
+                this.fullName = this.firstName + " " + this.lastName; 
+            }
+        }
+        
+        this.setLastName = function( inputLN ){               //setter 2
+            if ( typeof inputLN === typeof "string"){
+                this.lastName = inputLN; 
+                this.fullName = this.firstName + " " + this.lastName; 
+            }
+        }
+        
+        
+        
+        
+        
+        
+        return this; 
+    }
+    
+    var person001 = new Person ("John", "Wick");
+    var person002 = new Person( "Michael", "Jackson"); 
+    
+    person001.setFirstName("Yoo");
+    person002.setLastName("Yoo");
+    
+    
+    console.log(person001.fullName); 
+    console.log(person002.fullName); 
+    console.log("------------------------------"); 
+    console.log( typeof "Yoo" === typeof "string"); 
+    console.log( typeof "Yoo" == typeof "string"); 
+    console.log(person001.fullName); 
+    console.log(person002.fullName); 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    lib.firstName = "Michael"; 
+    lib.setFirstName("Mike 001 "); 
+    lib.lastName = "Jackson"; 
+    lib.setLastName("Jack 001"); 
+    
+    
+    lib.getFullName = function(){
+        return lib.firstName + " " + lib.lastName + " ! "; 
+    }
+    
+    
+    
+    var result01 = lib.getFullName();
+    console.log(result01);
+    
+    
+    
+    
+    
+
+</script>
+
+</html>

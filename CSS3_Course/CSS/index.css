@@ -1,3 +1,56 @@
  h1 {
      color: red
  }
+
+
+ #section_1_title {
+     /*  id selector */
+     color: rebeccapurple;
+ }
+
+ #section_2_title {
+     /*  id selector */
+     color: chartreuse;
+ }
+
+ .description {
+     /*  class(element) selector */
+     color: black;
+ }
+
+ .titles {
+     /*  class(element) selector */
+     color: blue;
+ }
+
+ .read_more {
+     /*  class(element) selector */
+     color: lightskyblue;
+ }
+
+ section {
+     /*  element selector */
+     background-color: antiquewhite;
+ }
+
+ #page_title {
+     /*  id selector */
+     color: orangered;
+ }
+
+
+
+
+body{
+    margin: 0; 
+}
+
+#cover{
+    width: 100%;
+    height: 400px;
+   
+    object-fit: cover;    
+/*    object-fit: contain // cover // ... etc */
+    background-color: aliceblue; 
+}
+
